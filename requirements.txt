@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+aiohttp
+prometheus-client
+prometheus-fastapi-instrumentator
+pydantic

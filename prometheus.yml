@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert.rules"
+
+scrape_configs:
+  - job_name: 'fastapi-stress-tester'
+    static_configs:
+      - targets: ['stress-tester:8000']

@@ -1,0 +1,11 @@
+groups:
+  - name: stress_tester_alerts
+    rules:
+      - alert: HighErrorRate
+        expr: sum(rate(stress_tester_target_requests_total{status_code="error"}[1m])) / sum(rate(stress_tester_target_requests_total[1m])) > 0.05
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate detected on target server"
+          description: "More than 5% of requests to the target server are failing (current value: {{ $value }})"
